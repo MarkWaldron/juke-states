@@ -2,9 +2,17 @@ var app = angular.module('juke', ['ui.router']);
 
 app.config(function ($stateProvider){
   $stateProvider.state('albumList', {
-    url: '/albums',
+    url: '/albums/',
     controller: 'AlbumsCtrl',
     templateUrl: '/templates/albums.html'
+  });
+});
+
+app.config(function ($stateProvider){
+  $stateProvider.state('album', {
+    url: '/album/:albumId',
+    controller: 'AlbumCtrl',
+    templateUrl: '/templates/album.html'
   });
 });
 
