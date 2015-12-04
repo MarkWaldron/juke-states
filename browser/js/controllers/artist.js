@@ -1,16 +1,11 @@
-app.controller('ArtistCtrl', function ($scope, $rootScope, PlayerFactory, ArtistFactory) {
-	
-	$rootScope.$on('changeView', function (evt, data) {
-		if (data.name == 'oneArtist') {
-			$scope.showMe = true;
-			ArtistFactory.fetchById(data.id)
+app.controller('ArtistCtrl', function ($scope, PlayerFactory, ArtistFactory, $stateParams) {
+
+			$scope.artistId = $stateParams.artistId;
+			ArtistFactory.fetchById($scope.artistId)
 			.then(function (artist) {
 				$scope.artist = artist;
 			});
-		} else {
-			$scope.showMe = false;
-		}
-	});
+
 
 	$scope.viewAlbum = function (albumId) {
 		$rootScope.$broadcast('changeView', {

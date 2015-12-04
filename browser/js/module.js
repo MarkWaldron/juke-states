@@ -23,3 +23,18 @@ app.config(function ($stateProvider){
     templateUrl: '/templates/artists.html'
   });
 });
+
+app.config(function ($stateProvider){
+  $stateProvider.state('artist', {
+    url: '/artist/:artistId',
+    controller: 'ArtistCtrl',
+    templateUrl: '/templates/artist.html'
+  }).state('artist.albums', {
+    url: '/albums',
+    templateUrl: '/templates/artistAlbums.html'
+  }).state('artist.songs', {
+    url: '/songs',
+    templateUrl: '/templates/artistSongs.html'
+  });
+
+});
